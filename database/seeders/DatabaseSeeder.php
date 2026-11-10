@@ -68,6 +68,34 @@ class DatabaseSeeder extends Seeder
             Setting::updateOrCreate(['key' => $key], ['value' => $val]);
         }
 
+        // ===================================================================
+        // CURATED IMAGE LIBRARY — Culturally appropriate Islamic modest fashion
+        // All images: hijabi women, abayas, fabric close-ups, Islamic motifs
+        // ===================================================================
+
+        // Hijabi women / abaya lifestyle
+        $imgHijabi1 = 'https://images.unsplash.com/photo-1569245087840-dcf487ddbad5?auto=format&fit=crop&w=800&q=80'; // woman in black abaya walking
+        $imgHijabi2 = 'https://images.unsplash.com/photo-1616902504573-5beee79ad6db?auto=format&fit=crop&w=800&q=80'; // woman in white hijab with sheer textile
+        $imgHijabi3 = 'https://images.unsplash.com/photo-1601267445524-663731fd40fb?auto=format&fit=crop&w=800&q=80'; // woman in brown hijab sitting
+        $imgHijabi4 = 'https://images.unsplash.com/photo-1542816417-0983c9c7ad53?auto=format&fit=crop&w=800&q=80'; // woman in hijab portrait
+        $imgHijabi5 = 'https://images.unsplash.com/photo-1609599006353-e629aaabfeae?auto=format&fit=crop&w=800&q=80'; // hijab fashion
+        $imgHijabi6 = 'https://images.unsplash.com/photo-1564769625905-50e93615e769?auto=format&fit=crop&w=800&q=80'; // modest wear
+
+        // Fabric / textile close-ups
+        $imgFabric1 = 'https://images.unsplash.com/photo-1558171813-4c088753af8f?auto=format&fit=crop&w=800&q=80'; // dark flowing fabric
+        $imgFabric2 = 'https://images.unsplash.com/photo-1528459801416-a9e53bbf4e17?auto=format&fit=crop&w=800&q=80'; // silk textile detail
+        $imgFabric3 = 'https://images.unsplash.com/photo-1553531087-b25a0b9b0cf4?auto=format&fit=crop&w=800&q=80'; // dark cloth folds
+
+        // Islamic architecture / Umrah context
+        $imgMosque1 = 'https://images.unsplash.com/photo-1591604129939-f1efa4d9f7fa?auto=format&fit=crop&w=800&q=80'; // mosque interior
+        $imgMosque2 = 'https://images.unsplash.com/photo-1590076215667-875d4ef2d7de?auto=format&fit=crop&w=800&q=80'; // Islamic architecture
+        $imgMosque3 = 'https://images.unsplash.com/photo-1564769610726-59cead6a6f6f?auto=format&fit=crop&w=800&q=80'; // mosque dome
+
+        // Wide banner images (1600w)
+        $bannerWide1 = 'https://images.unsplash.com/photo-1569245087840-dcf487ddbad5?auto=format&fit=crop&w=1600&q=80';
+        $bannerWide2 = 'https://images.unsplash.com/photo-1590076215667-875d4ef2d7de?auto=format&fit=crop&w=1600&q=80';
+        $bannerWide3 = 'https://images.unsplash.com/photo-1616902504573-5beee79ad6db?auto=format&fit=crop&w=1600&q=80';
+
         // 3. Promotional Banners (Hero Slider)
         Banner::truncate();
         Banner::create([
@@ -76,7 +104,7 @@ class DatabaseSeeder extends Seeder
             'badge' => 'New Season 2026',
             'button_text' => 'Explore Luxury Edit',
             'button_link' => '/shop?category=luxury-front-open',
-            'image' => 'https://images.unsplash.com/photo-1584917865442-de89df76afd3?auto=format&fit=crop&w=1600&q=80',
+            'image' => $bannerWide1,
             'sort_order' => 1,
             'is_active' => true,
         ]);
@@ -87,7 +115,7 @@ class DatabaseSeeder extends Seeder
             'badge' => 'Pilgrimage Essentials',
             'button_text' => 'Shop Umrah Edit',
             'button_link' => '/shop?category=the-umrah-edit',
-            'image' => 'https://images.unsplash.com/photo-1567401893414-76b7b1e5a7a5?auto=format&fit=crop&w=1600&q=80',
+            'image' => $bannerWide2,
             'sort_order' => 2,
             'is_active' => true,
         ]);
@@ -98,7 +126,7 @@ class DatabaseSeeder extends Seeder
             'badge' => 'Bestseller Combos',
             'button_text' => 'Discover Khimars',
             'button_link' => '/shop?category=khimar-sets',
-            'image' => 'https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?auto=format&fit=crop&w=1600&q=80',
+            'image' => $bannerWide3,
             'sort_order' => 3,
             'is_active' => true,
         ]);
@@ -109,7 +137,7 @@ class DatabaseSeeder extends Seeder
             'name' => 'Everyday Abayas',
             'slug' => 'everyday-abayas',
             'description' => 'Breathable, lightweight silhouettes crafted from pure Dubai Nidha for daily comfort & durability.',
-            'image' => 'https://images.unsplash.com/photo-1509631179647-0177331693ae?auto=format&fit=crop&w=800&q=80',
+            'image' => $imgHijabi1,
             'is_featured' => true,
             'is_active' => true,
             'sort_order' => 1,
@@ -119,7 +147,7 @@ class DatabaseSeeder extends Seeder
             'name' => 'Luxury Front Open',
             'slug' => 'luxury-front-open',
             'description' => 'Statement evening abayas featuring subtle hand embellishments, satin piping, and flowy bell sleeves.',
-            'image' => 'https://images.unsplash.com/photo-1584917865442-de89df76afd3?auto=format&fit=crop&w=800&q=80',
+            'image' => $imgFabric1,
             'is_featured' => true,
             'is_active' => true,
             'sort_order' => 2,
@@ -129,7 +157,7 @@ class DatabaseSeeder extends Seeder
             'name' => 'Khimar Sets & Combos',
             'slug' => 'khimar-sets',
             'description' => 'Coordinated French khimar and slip abaya pairings designed for effortless full coverage.',
-            'image' => 'https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?auto=format&fit=crop&w=800&q=80',
+            'image' => $imgHijabi2,
             'is_featured' => true,
             'is_active' => true,
             'sort_order' => 3,
@@ -139,7 +167,7 @@ class DatabaseSeeder extends Seeder
             'name' => '3-Piece Jilbabs',
             'slug' => '3-piece-jilbabs',
             'description' => 'Graceful full-length jilbab ensembles with matching flared skirts and breathable tie-back niqabs.',
-            'image' => 'https://images.unsplash.com/photo-1550614000-4895a10e1bfd?auto=format&fit=crop&w=800&q=80',
+            'image' => $imgHijabi3,
             'is_featured' => true,
             'is_active' => true,
             'sort_order' => 4,
@@ -149,7 +177,7 @@ class DatabaseSeeder extends Seeder
             'name' => 'The Umrah Edit',
             'slug' => 'the-umrah-edit',
             'description' => 'Featherlight, non-transparent, crease-resistant travel abayas tailored for sacred pilgrimage journeys.',
-            'image' => 'https://images.unsplash.com/photo-1567401893414-76b7b1e5a7a5?auto=format&fit=crop&w=800&q=80',
+            'image' => $imgMosque1,
             'is_featured' => true,
             'is_active' => true,
             'sort_order' => 5,
@@ -159,7 +187,7 @@ class DatabaseSeeder extends Seeder
             'name' => 'Namaz Chadars & Hijabs',
             'slug' => 'namaz-chadars-hijabs',
             'description' => 'Soft Turkish cotton prayer chadars with elasticated sleeves and luxury crinkle chiffon hijabs.',
-            'image' => 'https://images.unsplash.com/photo-1572804013309-59a88b7e92f1?auto=format&fit=crop&w=800&q=80',
+            'image' => $imgHijabi5,
             'is_featured' => true,
             'is_active' => true,
             'sort_order' => 6,
@@ -186,11 +214,11 @@ class DatabaseSeeder extends Seeder
                 'is_new' => true,
                 'is_bestseller' => true,
                 'status' => 'active',
-                'primary_image' => 'https://images.unsplash.com/photo-1584917865442-de89df76afd3?auto=format&fit=crop&w=800&q=80',
+                'primary_image' => $imgFabric1,
                 'gallery_images' => [
-                    'https://images.unsplash.com/photo-1584917865442-de89df76afd3?auto=format&fit=crop&w=800&q=80',
-                    'https://images.unsplash.com/photo-1509631179647-0177331693ae?auto=format&fit=crop&w=800&q=80',
-                    'https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?auto=format&fit=crop&w=800&q=80',
+                    $imgFabric1,
+                    $imgHijabi1,
+                    $imgFabric2,
                 ],
                 'sizes' => $standardSizes,
                 'lengths' => $standardLengths,
@@ -216,10 +244,10 @@ class DatabaseSeeder extends Seeder
                 'is_new' => true,
                 'is_bestseller' => true,
                 'status' => 'active',
-                'primary_image' => 'https://images.unsplash.com/photo-1509631179647-0177331693ae?auto=format&fit=crop&w=800&q=80',
+                'primary_image' => $imgHijabi1,
                 'gallery_images' => [
-                    'https://images.unsplash.com/photo-1509631179647-0177331693ae?auto=format&fit=crop&w=800&q=80',
-                    'https://images.unsplash.com/photo-1584917865442-de89df76afd3?auto=format&fit=crop&w=800&q=80',
+                    $imgHijabi1,
+                    $imgFabric3,
                 ],
                 'sizes' => $standardSizes,
                 'lengths' => $standardLengths,
@@ -245,10 +273,10 @@ class DatabaseSeeder extends Seeder
                 'is_new' => false,
                 'is_bestseller' => true,
                 'status' => 'active',
-                'primary_image' => 'https://images.unsplash.com/photo-1567401893414-76b7b1e5a7a5?auto=format&fit=crop&w=800&q=80',
+                'primary_image' => $imgMosque1,
                 'gallery_images' => [
-                    'https://images.unsplash.com/photo-1567401893414-76b7b1e5a7a5?auto=format&fit=crop&w=800&q=80',
-                    'https://images.unsplash.com/photo-1509631179647-0177331693ae?auto=format&fit=crop&w=800&q=80',
+                    $imgMosque1,
+                    $imgMosque2,
                 ],
                 'sizes' => $standardSizes,
                 'lengths' => $standardLengths,
@@ -274,10 +302,10 @@ class DatabaseSeeder extends Seeder
                 'is_new' => true,
                 'is_bestseller' => false,
                 'status' => 'active',
-                'primary_image' => 'https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?auto=format&fit=crop&w=800&q=80',
+                'primary_image' => $imgHijabi2,
                 'gallery_images' => [
-                    'https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?auto=format&fit=crop&w=800&q=80',
-                    'https://images.unsplash.com/photo-1584917865442-de89df76afd3?auto=format&fit=crop&w=800&q=80',
+                    $imgHijabi2,
+                    $imgHijabi4,
                 ],
                 'sizes' => $standardSizes,
                 'lengths' => $standardLengths,
@@ -304,10 +332,10 @@ class DatabaseSeeder extends Seeder
                 'is_new' => false,
                 'is_bestseller' => true,
                 'status' => 'active',
-                'primary_image' => 'https://images.unsplash.com/photo-1539109136881-3be0616acf4b?auto=format&fit=crop&w=800&q=80',
+                'primary_image' => $imgFabric3,
                 'gallery_images' => [
-                    'https://images.unsplash.com/photo-1539109136881-3be0616acf4b?auto=format&fit=crop&w=800&q=80',
-                    'https://images.unsplash.com/photo-1584917865442-de89df76afd3?auto=format&fit=crop&w=800&q=80',
+                    $imgFabric3,
+                    $imgFabric1,
                 ],
                 'sizes' => $standardSizes,
                 'lengths' => $standardLengths,
@@ -332,9 +360,9 @@ class DatabaseSeeder extends Seeder
                 'is_new' => true,
                 'is_bestseller' => true,
                 'status' => 'active',
-                'primary_image' => 'https://images.unsplash.com/photo-1550614000-4895a10e1bfd?auto=format&fit=crop&w=800&q=80',
+                'primary_image' => $imgHijabi3,
                 'gallery_images' => [
-                    'https://images.unsplash.com/photo-1550614000-4895a10e1bfd?auto=format&fit=crop&w=800&q=80',
+                    $imgHijabi3,
                 ],
                 'sizes' => $standardSizes,
                 'lengths' => $standardLengths,
@@ -360,9 +388,9 @@ class DatabaseSeeder extends Seeder
                 'is_new' => false,
                 'is_bestseller' => false,
                 'status' => 'active',
-                'primary_image' => 'https://images.unsplash.com/photo-1496747611176-843222e1e57c?auto=format&fit=crop&w=800&q=80',
+                'primary_image' => $imgHijabi4,
                 'gallery_images' => [
-                    'https://images.unsplash.com/photo-1496747611176-843222e1e57c?auto=format&fit=crop&w=800&q=80',
+                    $imgHijabi4,
                 ],
                 'sizes' => $standardSizes,
                 'lengths' => $standardLengths,
@@ -388,9 +416,9 @@ class DatabaseSeeder extends Seeder
                 'is_new' => true,
                 'is_bestseller' => true,
                 'status' => 'active',
-                'primary_image' => 'https://images.unsplash.com/photo-1572804013309-59a88b7e92f1?auto=format&fit=crop&w=800&q=80',
+                'primary_image' => $imgHijabi5,
                 'gallery_images' => [
-                    'https://images.unsplash.com/photo-1572804013309-59a88b7e92f1?auto=format&fit=crop&w=800&q=80',
+                    $imgHijabi5,
                 ],
                 'sizes' => ['Free Size'],
                 'lengths' => ['62" Full Flared'],
@@ -416,9 +444,9 @@ class DatabaseSeeder extends Seeder
                 'is_new' => false,
                 'is_bestseller' => true,
                 'status' => 'active',
-                'primary_image' => 'https://images.unsplash.com/photo-1512436991641-6745cdb1723f?auto=format&fit=crop&w=800&q=80',
+                'primary_image' => $imgHijabi6,
                 'gallery_images' => [
-                    'https://images.unsplash.com/photo-1512436991641-6745cdb1723f?auto=format&fit=crop&w=800&q=80',
+                    $imgHijabi6,
                 ],
                 'sizes' => $standardSizes,
                 'lengths' => $standardLengths,
@@ -442,9 +470,9 @@ class DatabaseSeeder extends Seeder
                 'is_new' => true,
                 'is_bestseller' => false,
                 'status' => 'active',
-                'primary_image' => 'https://images.unsplash.com/photo-1490481651871-ab68de25d43d?auto=format&fit=crop&w=800&q=80',
+                'primary_image' => $imgFabric2,
                 'gallery_images' => [
-                    'https://images.unsplash.com/photo-1490481651871-ab68de25d43d?auto=format&fit=crop&w=800&q=80',
+                    $imgFabric2,
                 ],
                 'sizes' => $standardSizes,
                 'lengths' => $standardLengths,

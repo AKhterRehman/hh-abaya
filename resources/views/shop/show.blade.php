@@ -445,6 +445,23 @@
         </div>
     @endif
 
+    <!-- Sticky Mobile Buy Bar for Effortless Mobile Shopping -->
+    <div class="fixed bottom-0 inset-x-0 bg-white/95 backdrop-blur-md border-t border-[#E8DDD7] px-4 py-3 z-30 lg:hidden shadow-[0_-4px_25px_rgba(0,0,0,0.08)] flex items-center justify-between gap-3">
+        <div class="min-w-0 flex-1">
+            <p class="text-xs font-bold text-stone-900 truncate">{{ $product->name }}</p>
+            <div class="flex items-center gap-2">
+                <span class="text-xs font-bold text-[#8C6D68]">PKR {{ number_format($product->effective_price) }}</span>
+                <span class="text-[10px] text-stone-400" x-text="size + ' / ' + length"></span>
+            </div>
+        </div>
+        <button type="button" 
+                @click="addToCartAjax({{ $product->id }}, size, length, color, quantity)"
+                class="px-5 py-2.5 bg-[#231F20] active:bg-[#8C6D68] text-white text-xs font-bold uppercase tracking-wider rounded-xl transition shadow-md flex items-center gap-2 flex-shrink-0">
+            <i class="fa-solid fa-bag-shopping text-xs"></i>
+            <span>Add to Bag</span>
+        </button>
+    </div>
+
 </div>
 
 @endsection

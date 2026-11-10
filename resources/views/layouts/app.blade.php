@@ -68,31 +68,171 @@
         .font-serif { font-family: 'Playfair Display', serif; }
         .font-sans { font-family: 'Plus Jakarta Sans', sans-serif; }
         
-        /* Subtle Gold Shimmer */
+        /* ===== GOLD SHIMMER TEXT ===== */
         .gold-shimmer {
             background: linear-gradient(135deg, #C5A059 0%, #EBD8B3 50%, #C5A059 100%);
+            background-size: 200% 200%;
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
+            animation: shimmer-flow 4s ease-in-out infinite;
+        }
+        @keyframes shimmer-flow {
+            0%, 100% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
         }
 
         .gold-border-gradient {
             border-image: linear-gradient(to right, #C5A059, #EBD8B3, #C5A059) 1;
         }
 
-        /* Custom Scrollbar */
-        ::-webkit-scrollbar {
-            width: 6px;
-            height: 6px;
+        /* ===== SCROLL-REVEAL ANIMATIONS ===== */
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
         }
-        ::-webkit-scrollbar-track {
-            background: #FAF7F2;
+        @keyframes fadeInLeft {
+            from { opacity: 0; transform: translateX(-30px); }
+            to { opacity: 1; transform: translateX(0); }
         }
-        ::-webkit-scrollbar-thumb {
-            background: #DDC9C2;
-            border-radius: 9999px;
+        @keyframes fadeInRight {
+            from { opacity: 0; transform: translateX(30px); }
+            to { opacity: 1; transform: translateX(0); }
         }
-        ::-webkit-scrollbar-thumb:hover {
-            background: #C5A059;
+        @keyframes scaleIn {
+            from { opacity: 0; transform: scale(0.92); }
+            to { opacity: 1; transform: scale(1); }
+        }
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-8px); }
+        }
+
+        .animate-fade-in-up { animation: fadeInUp 0.8s cubic-bezier(0.22, 1, 0.36, 1) both; }
+        .animate-fade-in-left { animation: fadeInLeft 0.8s cubic-bezier(0.22, 1, 0.36, 1) both; }
+        .animate-fade-in-right { animation: fadeInRight 0.8s cubic-bezier(0.22, 1, 0.36, 1) both; }
+        .animate-scale-in { animation: scaleIn 0.6s cubic-bezier(0.22, 1, 0.36, 1) both; }
+        .animate-float { animation: float 4s ease-in-out infinite; }
+
+        .reveal { opacity: 0; transform: translateY(30px); transition: all 0.9s cubic-bezier(0.22, 1, 0.36, 1); }
+        .reveal.revealed { opacity: 1; transform: translateY(0); }
+        .reveal-left { opacity: 0; transform: translateX(-30px); transition: all 0.9s cubic-bezier(0.22, 1, 0.36, 1); }
+        .reveal-left.revealed { opacity: 1; transform: translateX(0); }
+        .reveal-right { opacity: 0; transform: translateX(30px); transition: all 0.9s cubic-bezier(0.22, 1, 0.36, 1); }
+        .reveal-right.revealed { opacity: 1; transform: translateX(0); }
+
+        /* Staggered children animation */
+        .stagger-children > * { opacity: 0; transform: translateY(20px); transition: all 0.6s cubic-bezier(0.22, 1, 0.36, 1); }
+        .stagger-children.revealed > *:nth-child(1) { transition-delay: 0.05s; }
+        .stagger-children.revealed > *:nth-child(2) { transition-delay: 0.12s; }
+        .stagger-children.revealed > *:nth-child(3) { transition-delay: 0.19s; }
+        .stagger-children.revealed > *:nth-child(4) { transition-delay: 0.26s; }
+        .stagger-children.revealed > *:nth-child(5) { transition-delay: 0.33s; }
+        .stagger-children.revealed > *:nth-child(6) { transition-delay: 0.40s; }
+        .stagger-children.revealed > * { opacity: 1; transform: translateY(0); }
+
+        /* ===== PREMIUM BUTTON EFFECTS ===== */
+        .btn-gold-shimmer {
+            position: relative;
+            overflow: hidden;
+        }
+        .btn-gold-shimmer::before {
+            content: '';
+            position: absolute;
+            top: 0; left: -100%; width: 100%; height: 100%;
+            background: linear-gradient(90deg, transparent 0%, rgba(255,255,255,0.2) 50%, transparent 100%);
+            transition: left 0.6s ease;
+        }
+        .btn-gold-shimmer:hover::before { left: 100%; }
+
+        /* ===== PREMIUM NAV UNDERLINE ===== */
+        .nav-link-premium { position: relative; }
+        .nav-link-premium::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: linear-gradient(90deg, #C5A059, #EBD8B3);
+            transition: width 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+        }
+        .nav-link-premium:hover::after,
+        .nav-link-premium.active::after { width: 100%; }
+
+        /* ===== SUBTLE ISLAMIC GEOMETRIC PATTERN ===== */
+        .islamic-pattern {
+            background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23C5A059' fill-opacity='0.04'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+        }
+
+        /* ===== ORNAMENTAL SECTION DIVIDER ===== */
+        .ornament-divider {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            width: 100%;
+        }
+        .ornament-divider::before,
+        .ornament-divider::after {
+            content: '';
+            flex: 1;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, #C5A059, transparent);
+        }
+        .ornament-divider .ornament-icon {
+            color: #C5A059;
+            font-size: 12px;
+        }
+
+        /* ===== IMAGE HOVER ZOOM + OVERLAY ===== */
+        .img-zoom-hover { overflow: hidden; }
+        .img-zoom-hover img {
+            transition: transform 0.7s cubic-bezier(0.22, 1, 0.36, 1), filter 0.5s ease;
+        }
+        .img-zoom-hover:hover img {
+            transform: scale(1.08);
+        }
+
+        /* ===== CARD HOVER ELEVATION ===== */
+        .card-hover-lift {
+            transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.4s ease;
+        }
+        .card-hover-lift:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 20px 40px -8px rgba(35, 31, 32, 0.12), 0 8px 16px -4px rgba(197, 160, 89, 0.08);
+        }
+
+        /* ===== SOCIAL ICON HOVER ===== */
+        .social-icon-hover {
+            transition: all 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+        }
+        .social-icon-hover:hover {
+            transform: translateY(-3px) scale(1.1);
+        }
+
+        /* ===== LOADING SKELETON ===== */
+        @keyframes skeleton-pulse {
+            0%, 100% { opacity: 0.4; }
+            50% { opacity: 0.8; }
+        }
+        .skeleton { animation: skeleton-pulse 1.8s ease-in-out infinite; background: linear-gradient(90deg, #E8DDD7 25%, #F3EFEB 50%, #E8DDD7 75%); background-size: 200% 100%; }
+
+        /* ===== SMOOTH PAGE LOAD ===== */
+        body { animation: fadeInUp 0.5s ease-out both; }
+
+        /* ===== Custom Scrollbar ===== */
+        ::-webkit-scrollbar { width: 6px; height: 6px; }
+        ::-webkit-scrollbar-track { background: #FAF7F2; }
+        ::-webkit-scrollbar-thumb { background: #DDC9C2; border-radius: 9999px; }
+        ::-webkit-scrollbar-thumb:hover { background: #C5A059; }
+
+        /* ===== MOBILE RESPONSIVE FIXES ===== */
+        @media (max-width: 480px) {
+            .font-serif { letter-spacing: -0.01em; }
+            h1 { font-size: 1.75rem !important; line-height: 1.2 !important; }
+            h2 { font-size: 1.35rem !important; }
+        }
+        @media (max-width: 768px) {
+            .mobile-full-bleed { margin-left: -1rem; margin-right: -1rem; border-radius: 0; }
         }
     </style>
 
@@ -758,5 +898,24 @@
     </script>
 
     @stack('scripts')
+
+    <!-- Scroll-Reveal Intersection Observer -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const revealElements = document.querySelectorAll('.reveal, .reveal-left, .reveal-right, .stagger-children');
+            if (revealElements.length === 0) return;
+            
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('revealed');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+
+            revealElements.forEach(el => observer.observe(el));
+        });
+    </script>
 </body>
 </html>

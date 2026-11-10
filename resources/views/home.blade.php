@@ -91,9 +91,9 @@
 </section>
 
 <!-- 2. Value Propositions Bar -->
-<section class="border-y border-[#E8DDD7] bg-white py-6">
+<section class="border-y border-[#E8DDD7] bg-white py-6 islamic-pattern">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="grid grid-cols-2 md:grid-cols-4 gap-6 text-center md:text-left">
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-6 text-center md:text-left stagger-children reveal">
             
             <div class="flex flex-col md:flex-row items-center gap-3">
                 <div class="w-12 h-12 rounded-xl bg-[#FAF7F2] text-[#8C6D68] flex items-center justify-center text-xl flex-shrink-0 ring-1 ring-[#E8DDD7]">
@@ -140,20 +140,22 @@
 </section>
 
 <!-- 3. Curated Category Story Circles / Grid -->
-<section class="py-14 bg-[#FAF7F2]">
+<section class="py-14 bg-[#FAF7F2] islamic-pattern">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
-        <div class="text-center max-w-xl mx-auto mb-10 space-y-2">
+        <div class="text-center max-w-xl mx-auto mb-10 space-y-2 reveal">
             <span class="text-xs uppercase tracking-[0.25em] text-[#8C6D68] font-bold">Curated Silhouettes</span>
             <h2 class="font-serif text-2xl sm:text-3xl font-bold text-[#231F20]">Explore By Collection</h2>
-            <div class="w-12 h-0.5 bg-[#C5A059] mx-auto"></div>
+            <div class="ornament-divider justify-center max-w-xs mx-auto pt-2">
+                <span class="ornament-icon">✦</span>
+            </div>
         </div>
 
-        <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4 sm:gap-6">
+        <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4 sm:gap-6 stagger-children reveal">
             @foreach($categories as $category)
                 <a href="{{ route('shop.index', ['category' => $category->slug]) }}" 
-                   class="group flex flex-col items-center text-center p-3 rounded-2xl bg-white border border-[#E8DDD7] hover:border-[#C5A059] hover:shadow-lg transition-all duration-300">
-                    <div class="w-24 h-24 sm:w-28 sm:h-28 rounded-full overflow-hidden p-1 border-2 border-dashed border-[#C5A059]/40 group-hover:border-[#C5A059] group-hover:rotate-3 transition duration-500 bg-[#FAF7F2] mb-3">
+                   class="group flex flex-col items-center text-center p-3 rounded-2xl bg-white border border-[#E8DDD7] hover:border-[#C5A059] card-hover-lift transition-all duration-400">
+                    <div class="w-24 h-24 sm:w-28 sm:h-28 rounded-full overflow-hidden p-1 border-2 border-dashed border-[#C5A059]/40 group-hover:border-[#C5A059] group-hover:border-solid transition-all duration-500 bg-[#FAF7F2] mb-3 img-zoom-hover">
                         <img src="{{ $category->image ? (str_starts_with($category->image, 'http') ? $category->image : asset($category->image)) : asset('images/logo.jpg') }}" 
                              alt="{{ $category->name }}" 
                              class="w-full h-full object-cover rounded-full">
@@ -175,7 +177,7 @@
 <section class="py-16 bg-white border-t border-[#E8DDD7]" x-data="{ activeTab: 'featured' }">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
-        <div class="flex flex-col sm:flex-row sm:items-end justify-between mb-8 pb-4 border-b border-stone-200 gap-4">
+        <div class="flex flex-col sm:flex-row sm:items-end justify-between mb-8 pb-4 border-b border-stone-200 gap-4 reveal">
             <div>
                 <span class="text-xs uppercase tracking-[0.25em] text-[#8C6D68] font-bold">Handcrafted Elegance</span>
                 <h2 class="font-serif text-2xl sm:text-3xl font-bold text-stone-900 mt-1">Signature Collections</h2>
@@ -289,10 +291,10 @@
 
                 <div class="grid grid-cols-2 gap-4">
                     <div class="aspect-[3/4] rounded-2xl overflow-hidden shadow-md ring-1 ring-white/20">
-                        <img src="https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?auto=format&fit=crop&w=600&q=80" alt="Khimar Set" class="w-full h-full object-cover">
+                        <img src="https://images.unsplash.com/photo-1616902504573-5beee79ad6db?auto=format&fit=crop&w=600&q=80" alt="Khimar Set" class="w-full h-full object-cover">
                     </div>
                     <div class="aspect-[3/4] rounded-2xl overflow-hidden shadow-md ring-1 ring-white/20 mt-6">
-                        <img src="https://images.unsplash.com/photo-1584917865442-de89df76afd3?auto=format&fit=crop&w=600&q=80" alt="Luxury Abaya" class="w-full h-full object-cover">
+                        <img src="https://images.unsplash.com/photo-1569245087840-dcf487ddbad5?auto=format&fit=crop&w=600&q=80" alt="Luxury Abaya" class="w-full h-full object-cover">
                     </div>
                 </div>
 
@@ -445,39 +447,39 @@
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3">
             <div class="aspect-square rounded-xl overflow-hidden relative group">
-                <img src="https://images.unsplash.com/photo-1584917865442-de89df76afd3?auto=format&fit=crop&w=400&q=80" class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
-                <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition flex items-center justify-center text-white text-xl">
-                    <i class="fa-brands fa-instagram"></i>
+                <img src="https://images.unsplash.com/photo-1569245087840-dcf487ddbad5?auto=format&fit=crop&w=400&q=80" alt="Abaya style" class="w-full h-full object-cover group-hover:scale-110 transition duration-700 ease-out">
+                <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-all duration-500 flex items-center justify-center text-white text-xl">
+                    <i class="fa-brands fa-instagram transform group-hover:rotate-12 transition-transform duration-300"></i>
                 </div>
             </div>
             <div class="aspect-square rounded-xl overflow-hidden relative group">
-                <img src="https://images.unsplash.com/photo-1509631179647-0177331693ae?auto=format&fit=crop&w=400&q=80" class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
-                <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition flex items-center justify-center text-white text-xl">
-                    <i class="fa-brands fa-instagram"></i>
+                <img src="https://images.unsplash.com/photo-1616902504573-5beee79ad6db?auto=format&fit=crop&w=400&q=80" alt="Hijab fashion" class="w-full h-full object-cover group-hover:scale-110 transition duration-700 ease-out">
+                <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-all duration-500 flex items-center justify-center text-white text-xl">
+                    <i class="fa-brands fa-instagram transform group-hover:rotate-12 transition-transform duration-300"></i>
                 </div>
             </div>
             <div class="aspect-square rounded-xl overflow-hidden relative group">
-                <img src="https://images.unsplash.com/photo-1567401893414-76b7b1e5a7a5?auto=format&fit=crop&w=400&q=80" class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
-                <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition flex items-center justify-center text-white text-xl">
-                    <i class="fa-brands fa-instagram"></i>
+                <img src="https://images.unsplash.com/photo-1601267445524-663731fd40fb?auto=format&fit=crop&w=400&q=80" alt="Modest fashion" class="w-full h-full object-cover group-hover:scale-110 transition duration-700 ease-out">
+                <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-all duration-500 flex items-center justify-center text-white text-xl">
+                    <i class="fa-brands fa-instagram transform group-hover:rotate-12 transition-transform duration-300"></i>
                 </div>
             </div>
             <div class="aspect-square rounded-xl overflow-hidden relative group">
-                <img src="https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?auto=format&fit=crop&w=400&q=80" class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
-                <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition flex items-center justify-center text-white text-xl">
-                    <i class="fa-brands fa-instagram"></i>
+                <img src="https://images.unsplash.com/photo-1542816417-0983c9c7ad53?auto=format&fit=crop&w=400&q=80" alt="Hijabi style" class="w-full h-full object-cover group-hover:scale-110 transition duration-700 ease-out">
+                <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-all duration-500 flex items-center justify-center text-white text-xl">
+                    <i class="fa-brands fa-instagram transform group-hover:rotate-12 transition-transform duration-300"></i>
                 </div>
             </div>
             <div class="aspect-square rounded-xl overflow-hidden relative group">
-                <img src="https://images.unsplash.com/photo-1539109136881-3be0616acf4b?auto=format&fit=crop&w=400&q=80" class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
-                <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition flex items-center justify-center text-white text-xl">
-                    <i class="fa-brands fa-instagram"></i>
+                <img src="https://images.unsplash.com/photo-1609599006353-e629aaabfeae?auto=format&fit=crop&w=400&q=80" alt="Abaya collection" class="w-full h-full object-cover group-hover:scale-110 transition duration-700 ease-out">
+                <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-all duration-500 flex items-center justify-center text-white text-xl">
+                    <i class="fa-brands fa-instagram transform group-hover:rotate-12 transition-transform duration-300"></i>
                 </div>
             </div>
             <div class="aspect-square rounded-xl overflow-hidden relative group">
-                <img src="https://images.unsplash.com/photo-1550614000-4895a10e1bfd?auto=format&fit=crop&w=400&q=80" class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
-                <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition flex items-center justify-center text-white text-xl">
-                    <i class="fa-brands fa-instagram"></i>
+                <img src="https://images.unsplash.com/photo-1564769625905-50e93615e769?auto=format&fit=crop&w=400&q=80" alt="Modest wear" class="w-full h-full object-cover group-hover:scale-110 transition duration-700 ease-out">
+                <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-all duration-500 flex items-center justify-center text-white text-xl">
+                    <i class="fa-brands fa-instagram transform group-hover:rotate-12 transition-transform duration-300"></i>
                 </div>
             </div>
         </div>
